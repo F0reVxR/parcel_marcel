@@ -10,7 +10,7 @@ def enhance_pic(image_path):
     enhancer_b = ImageEnhance.Brightness(image)
     bright_img = enhancer_b.enhance(brightness_factor)
 
-    contrast_factor = 1.8
+    contrast_factor = 1.2
     enhancer_c = ImageEnhance.Contrast(bright_img)
     final_img = enhancer_c.enhance(contrast_factor)
 
