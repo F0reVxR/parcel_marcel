@@ -3,12 +3,13 @@ import time
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 from pic_enh import enhance_pic
 from get_text import get_text_of_img
 
 def solve_captcha(href: str) -> None:
-        
+
     driver = webdriver.Chrome()
 
     driver.get(f'{href}')
@@ -27,5 +28,19 @@ def solve_captcha(href: str) -> None:
 
     os.remove('modern_parcel/pics/secpic_raw.png')
     os.remove('modern_parcel/pics/enhpic.png')
+    driver.quit()
 
-solve_captcha('https://issaold.beltelecom.by/main.html')
+#solve_captcha('https://issaold.beltelecom.by/main.html')
+
+def visit_w_UsAge(href: str) -> None:
+
+    options = Options()
+    options.add_argument('--user-agent=Semen/4.0 (Windows NT 7.0; Win32; x32) AppleWebkit/1 (KHTML, like Gecko) Shrone/192.168.9.0 Plateau/12.10')
+    options.add_argument(f'--proxy-server=https://nullsproxy.com/')
+
+    driver = webdriver.Chrome(options=options)
+    driver.get(f'{href}')
+    time.sleep(200)
+    driver.quit()
+
+visit_w_UsAge('https://whatmyuseragent.com/')
