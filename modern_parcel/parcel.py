@@ -42,19 +42,19 @@ class Parse_Chrome():
 
     class Mask():
             
-            def User_Agent_Mask(href: str) -> Options:
+        def User_Agent_Mask(href: str) -> Options:
+
+            options = Options()
+            options.add_argument('--user-agent=Semen/4.0 (Windows NT 7.0; Win32; x32) AppleWebkit/1 (KHTML, like Gecko) Shrone/192.168.9.0 Plateau/12.10')
+
+            return options
     
-                options = Options()
-                options.add_argument('--user-agent=Semen/4.0 (Windows NT 7.0; Win32; x32) AppleWebkit/1 (KHTML, like Gecko) Shrone/192.168.9.0 Plateau/12.10')
+        def Proxy_Mask(href: str) -> Options:
     
-                return options
-        
-            def Proxy_Mask(href: str) -> Options:
-        
-                options = Options()
-                options.add_argument(f'--proxy-server=https://nullsproxy.com/')
-        
-                return options
+            options = Options()
+            options.add_argument(f'--proxy-server=https://nullsproxy.com/')
+    
+            return options
             
     def input_keys(self) -> None:
 
