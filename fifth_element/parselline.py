@@ -1,0 +1,28 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import pandas as pd
+import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+class FParser:
+
+    def __init__(self, link):
+
+        self.link = link
+        self.driver = webdriver.Firefox()
+
+        self.driver.get(self.link)
+
+    def get_all_links(self):
+
+        elements = self.driver.find_elements(By.CLASS_NAME, value='c-list__title')
+        
+        link_list = []
+        for element in elements:
+            link_list.append(element.get_attribute('href'))
+        return link_list
+    
+    def __del__():
+
+        print('finished')
