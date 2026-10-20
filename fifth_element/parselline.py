@@ -10,26 +10,33 @@ class FParser:
     def __init__(self, link):
 
         self.link = link
-        self.driver = webdriver.Firefox()
-        self.links_list = []
-
+        self.driver = webdriver.Chrome()
         self.driver.get(self.link)
+        self.links_list = []
 
     def get_all_links(self):
 
-        elements = self.driver.find_elements(By.CLASS_NAME, value='c-list__title')
-        
+        elements = self.driver.find_elements(By.TAG_NAME, value='a')
         for element in elements:
-            self.link_list.append(element.get_attribute('href'))
+            self.links_list.append(element.get_attribute('href'))
 
     def click_next_page(self):
-
+        time.sleep(3)
         clickable_element = WebDriverWait(self.driver, 20).until(
-            EC.element_to_be_clickable(By.CLASS_NAME, "show-more")
+            EC.element_to_be_clickable((By.XPATH, '//main/div/div[1]/div[3]/div[3]/nav/ul/li[7]/a'))
         )
 
         clickable_element.click()
+
+    def accept_cookies(self):
+
+        clickable_element = WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "popup-cookie__confirm"))
+        )
+        
+        clickable_element.click()
+
     
-    def __del__():
+    def __del__(self):
 
         print('finished')
