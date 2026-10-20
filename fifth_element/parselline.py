@@ -11,6 +11,7 @@ class FParser:
 
         self.link = link
         self.driver = webdriver.Firefox()
+        self.links_list = []
 
         self.driver.get(self.link)
 
@@ -18,13 +19,11 @@ class FParser:
 
         elements = self.driver.find_elements(By.CLASS_NAME, value='c-list__title')
         
-        link_list = []
         for element in elements:
-            link_list.append(element.get_attribute('href'))
-        return link_list
+            self.link_list.append(element.get_attribute('href'))
 
     def click_next_page(self):
-        
+
         clickable_element = WebDriverWait(self.driver, 20).until(
             EC.element_to_be_clickable(By.CLASS_NAME, "show-more")
         )
