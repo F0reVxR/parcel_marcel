@@ -22,6 +22,14 @@ class FParser:
         for element in elements:
             link_list.append(element.get_attribute('href'))
         return link_list
+
+    def click_next_page(self):
+        
+        clickable_element = WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable(By.CLASS_NAME, "show-more")
+        )
+
+        clickable_element.click()
     
     def __del__():
 
