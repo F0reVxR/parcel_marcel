@@ -49,6 +49,8 @@ class Parse_Chrome():
 
     def __del__(self) -> None:
 
+        os.remove('modern_parcel/pics/enhpic.png')
+        os.remove('modern_parcel/pics/secpic_raw.png')
         self._driver.quit()
 
 #solve_captcha('https://issaold.beltelecom.by/main.html')
