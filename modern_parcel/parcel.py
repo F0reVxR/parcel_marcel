@@ -37,7 +37,7 @@ class Parse_Chrome():
 
         options = Options()
         options.add_argument('--user-agent=Semen/4.0 (Windows NT 7.0; Win32; x32) AppleWebkit/1 (KHTML, like Gecko) Shrone/192.168.9.0 Plateau/12.10')
-        options.add_argument(f'--proxy-server=https://nullsproxy.com/')
+        options.add_argument(f'--proxy-server={href}')
         return options
 
     def input_keys(self, input_text) -> None:
