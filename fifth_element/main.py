@@ -12,7 +12,8 @@ def main():
             parser.click_next_page()
     except Exception as e:
         print(e)
-    print(parser.links_list)
+    parser.get_info()
+    print(parser.info_list)
 
 
     
